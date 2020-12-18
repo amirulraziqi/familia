@@ -12,9 +12,31 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
-        <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Navigator 
+        initialRouteName="Chat"
+        mode='modal'
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: '#f4511e',
+            height: 80,
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontSize: 24,
+            fontWeight: 'bold',
+            fontStyle: 'italic'
+          },
+        }}
+      >
         <Stack.Screen name="Chat" component={ChatScreen} />
+        <Stack.Screen 
+          name="Login" 
+          component={LoginScreen} 
+          options={{ 
+            title: 'FAMILIA',
+            headerShown: false
+          }} 
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
